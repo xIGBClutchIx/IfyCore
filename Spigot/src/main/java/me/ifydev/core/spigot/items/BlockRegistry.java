@@ -1,6 +1,5 @@
 package me.ifydev.core.spigot.items;
 
-import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.potion.PotionData;
 import org.bukkit.potion.PotionType;
@@ -9,19 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * @author Innectic
- * @since 10/5/2017
- */
 public class BlockRegistry {
-    @Getter private static List<BaseItem> registered = new ArrayList<>();
+    private static List<BaseItem> registered = new ArrayList<>();
 
-    @Getter private static boolean setup = false;
+    public static List<BaseItem> getRegistered() {
+        return registered;
+    }
+
+    private static boolean setup = false;
+
+    public static boolean isSetup() {
+        return setup;
+    }
 
     public static void setup() {
-        if (setup) return;
+        if (setup)
+            return;
         setup = true;
-
         registered.add(new BaseItem("Stone", Material.STONE));
         registered.add(new BaseItem("Granite", Material.GRANITE));
         registered.add(new BaseItem("Polished Granite", Material.POLISHED_GRANITE));
@@ -49,7 +52,6 @@ public class BlockRegistry {
         registered.add(new BaseItem("Sand", Material.SAND));
         registered.add(new BaseItem("Red Sand", Material.RED_SAND));
         registered.add(new BaseItem("Gravel", Material.GRAVEL));
-
         registered.add(new BaseItem("Dripstone Block", Material.DRIPSTONE_BLOCK));
         registered.add(new BaseItem("Pointed Dripstone", Material.POINTED_DRIPSTONE));
         registered.add(new BaseItem("Raw Iron Block", Material.RAW_IRON_BLOCK));
@@ -59,13 +61,11 @@ public class BlockRegistry {
         registered.add(new BaseItem("Deepslate", Material.DEEPSLATE));
         registered.add(new BaseItem("Cobbled Deepslate", Material.COBBLED_DEEPSLATE));
         registered.add(new BaseItem("Polished Deepslate", Material.POLISHED_DEEPSLATE));
-
         registered.add(new BaseItem("Gold Ore", Material.GOLD_ORE));
         registered.add(new BaseItem("Raw Gold", Material.RAW_GOLD));
         registered.add(new BaseItem("Iron Ore", Material.IRON_ORE));
         registered.add(new BaseItem("Raw Iron", Material.RAW_IRON));
         registered.add(new BaseItem("Coal Ore", Material.COAL_ORE));
-
         registered.add(new BaseItem("Lapis Lazuli Ore", Material.LAPIS_ORE));
         registered.add(new BaseItem("Sponge", Material.SPONGE));
         registered.add(new BaseItem("Wet Sponge", Material.WET_SPONGE));
@@ -283,10 +283,8 @@ public class BlockRegistry {
         registered.add(new BaseItem("Jack-O-Lantern", Material.JACK_O_LANTERN));
         registered.add(new BaseItem("Cake", Material.CAKE));
         registered.add(new BaseItem("Redstone Repeater", Material.REPEATER));
-
         registered.add(new BaseItem("Glass", Material.GLASS));
         registered.add(new BaseItem("Tinted Glass", Material.TINTED_GLASS));
-
         registered.add(new BaseItem("White Stained Glass", Material.WHITE_STAINED_GLASS));
         registered.add(new BaseItem("Orange Stained Glass", Material.ORANGE_STAINED_GLASS));
         registered.add(new BaseItem("Magenta Stained Glass", Material.MAGENTA_STAINED_GLASS));
@@ -303,7 +301,6 @@ public class BlockRegistry {
         registered.add(new BaseItem("Green Stained Glass", Material.GREEN_STAINED_GLASS));
         registered.add(new BaseItem("Red Stained Glass", Material.RED_STAINED_GLASS));
         registered.add(new BaseItem("Black Stained Glass", Material.BLACK_STAINED_GLASS));
-
         registered.add(new BaseItem("Glass Pane", Material.GLASS_PANE));
         registered.add(new BaseItem("White Stained Glass Pane", Material.WHITE_STAINED_GLASS_PANE));
         registered.add(new BaseItem("Orange Stained Glass Pane", Material.ORANGE_STAINED_GLASS_PANE));
@@ -321,7 +318,6 @@ public class BlockRegistry {
         registered.add(new BaseItem("Green Stained Glass Pane", Material.GREEN_STAINED_GLASS_PANE));
         registered.add(new BaseItem("Black Stained Glass Pane", Material.BLACK_STAINED_GLASS_PANE));
         registered.add(new BaseItem("Red Stained Glass Pane", Material.RED_STAINED_GLASS_PANE));
-
         registered.add(new BaseItem("Stone Monster Egg", Material.INFESTED_STONE));
         registered.add(new BaseItem("Cobblestone Monster Egg", Material.INFESTED_COBBLESTONE));
         registered.add(new BaseItem("Stone Brick Monster Egg", Material.INFESTED_STONE_BRICKS));
@@ -393,9 +389,6 @@ public class BlockRegistry {
         registered.add(new BaseItem("Pillar Quartz Block", Material.QUARTZ_PILLAR));
         registered.add(new BaseItem("Activator Rail", Material.ACTIVATOR_RAIL));
         registered.add(new BaseItem("Dropper", Material.DROPPER));
-
-        // NOTE: Duplicates are for compatibility reasons, and should probably be removed
-        // someday :tm:.
         registered.add(new BaseItem("White Stained Clay", Material.WHITE_TERRACOTTA));
         registered.add(new BaseItem("White Terracotta", Material.WHITE_TERRACOTTA));
         registered.add(new BaseItem("Orange Stained Clay", Material.ORANGE_TERRACOTTA));
@@ -601,6 +594,9 @@ public class BlockRegistry {
         registered.add(new BaseItem("Diamond", Material.DIAMOND));
         registered.add(new BaseItem("Iron Ingot", Material.IRON_INGOT));
         registered.add(new BaseItem("Gold Ingot", Material.GOLD_INGOT));
+        registered.add(new BaseItem("Copper Ingot", Material.COPPER_INGOT));
+        registered.add(new BaseItem("Raw Copper", Material.RAW_COPPER));
+        registered.add(new BaseItem("Mangrove Propagule", Material.MANGROVE_PROPAGULE));
         registered.add(new BaseItem("Iron Sword", Material.IRON_SWORD));
         registered.add(new BaseItem("Wood Sword", Material.WOODEN_SWORD));
         registered.add(new BaseItem("Wood Axe", Material.WOODEN_AXE));
@@ -696,6 +692,10 @@ public class BlockRegistry {
         registered.add(new BaseItem("Green Dye", Material.GREEN_DYE));
         registered.add(new BaseItem("Cocoa Beans", Material.COCOA_BEANS));
         registered.add(new BaseItem("Lapis Lazuli", Material.LAPIS_LAZULI));
+        registered.add(new BaseItem("Blue Dye", Material.BLUE_DYE));
+        registered.add(new BaseItem("Brown Dye", Material.BROWN_DYE));
+        registered.add(new BaseItem("Black Dye", Material.BLACK_DYE));
+        registered.add(new BaseItem("White Dye", Material.WHITE_DYE));
         registered.add(new BaseItem("Purple Dye", Material.PURPLE_DYE));
         registered.add(new BaseItem("Cyan Dye", Material.CYAN_DYE));
         registered.add(new BaseItem("Light Gray Dye", Material.LIGHT_GRAY_DYE));
@@ -757,11 +757,8 @@ public class BlockRegistry {
         registered.add(new BaseItem("Spawn Glow Squid", Material.GLOW_SQUID_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Goat", Material.GOAT_SPAWN_EGG));
         registered.add(new BaseItem("Spyglass", Material.SPYGLASS));
-
-        // Duplicates because Minecraft is stupid AF
         registered.add(new BaseItem("Spawn Zombie Pigman", Material.ZOMBIFIED_PIGLIN_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Zombified Piglin", Material.ZOMBIFIED_PIGLIN_SPAWN_EGG));
-
         registered.add(new BaseItem("Spawn Enderman", Material.ENDERMAN_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Cave Spider", Material.CAVE_SPIDER_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Silverfish", Material.SILVERFISH_SPAWN_EGG));
@@ -778,16 +775,18 @@ public class BlockRegistry {
         registered.add(new BaseItem("Spawn Chicken", Material.CHICKEN_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Squid", Material.SQUID_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Mooshroom", Material.MOOSHROOM_SPAWN_EGG));
-
         registered.add(new BaseItem("Spawn Wolf", Material.WOLF_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Ocelot", Material.OCELOT_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Cat", Material.CAT_SPAWN_EGG));
-
         registered.add(new BaseItem("Spawn Horse", Material.HORSE_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Rabbit", Material.RABBIT_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Polar Bear", Material.POLAR_BEAR_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Llama", Material.LLAMA_SPAWN_EGG));
         registered.add(new BaseItem("Spawn Villager", Material.VILLAGER_SPAWN_EGG));
+
+        registered.add(new BaseItem("Spawn Camel", Material.CAMEL_SPAWN_EGG));
+        registered.add(new BaseItem("Spawn Sniffer", Material.SNIFFER_SPAWN_EGG));
+
         registered.add(new BaseItem("Bottle 'o Enchanting", Material.EXPERIENCE_BOTTLE));
         registered.add(new BaseItem("Fire Charge", Material.FIRE_CHARGE));
         registered.add(new BaseItem("Book and Quill", Material.WRITABLE_BOOK));
