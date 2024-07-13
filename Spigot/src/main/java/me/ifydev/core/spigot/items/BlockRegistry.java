@@ -1061,11 +1061,12 @@ public class BlockRegistry {
         registered.add(new BaseItem("Splash Potion of Leaping", Material.SPLASH_POTION, new PotionData(PotionType.LEAPING, false, false)));
         registered.add(new BaseItem("Splash Potion of Leaping (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.LEAPING, true, false)));
         registered.add(new BaseItem("Splash Potion of Leaping II", Material.SPLASH_POTION, new PotionData(PotionType.LEAPING, false, true)));
-
+        // New
+        registered.add(new BaseItem("Netherite Upgrade Smithing Template", Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE));
         // New 1.21
         registered.add(new BaseItem("Wolf Armor", Material.WOLF_ARMOR));
         registered.add(new BaseItem("Mace", Material.MACE));
-
+        registered.add(new BaseItem("Wind Charge", Material.WIND_CHARGE));
     }
 
     public static Optional<BaseItem> find(String name) {
