@@ -21,6 +21,7 @@ public class BlockRegistry {
         return setup;
     }
 
+    @SuppressWarnings("removal")
     public static void setup() {
         if (setup)
             return;
@@ -32,7 +33,7 @@ public class BlockRegistry {
         registered.add(new BaseItem("Polished Diorite", Material.POLISHED_DIORITE));
         registered.add(new BaseItem("Andesite", Material.ANDESITE));
         registered.add(new BaseItem("Polished Andesite", Material.POLISHED_ANDESITE));
-        registered.add(new BaseItem("Grass", Material.GRASS));
+        registered.add(new BaseItem("Grass", Material.GRASS_BLOCK));
         registered.add(new BaseItem("Dirt", Material.DIRT));
         registered.add(new BaseItem("Coarse Dirt", Material.COARSE_DIRT));
         registered.add(new BaseItem("Podzol", Material.PODZOL));
@@ -101,7 +102,7 @@ public class BlockRegistry {
         registered.add(new BaseItem("Cobweb", Material.COBWEB));
         registered.add(new BaseItem("Dead Bush", Material.DEAD_BUSH));
         registered.add(new BaseItem("Dead Shrub", Material.DEAD_BUSH));
-        registered.add(new BaseItem("Tall Grass", Material.GRASS));
+        registered.add(new BaseItem("Tall Grass", Material.TALL_GRASS));
         registered.add(new BaseItem("Fern", Material.FERN));
         registered.add(new BaseItem("White Wool", Material.WHITE_WOOL));
         registered.add(new BaseItem("Orange Wool", Material.ORANGE_WOOL));
@@ -929,7 +930,8 @@ public class BlockRegistry {
         registered.add(new BaseItem("Panda Spawn Egg", Material.PANDA_SPAWN_EGG));
         registered.add(new BaseItem("Pillager Spawn Egg", Material.PILLAGER_SPAWN_EGG));
         registered.add(new BaseItem("Ravager Spawn Egg", Material.RAVAGER_SPAWN_EGG));
-        registered.add(new BaseItem("Scute", Material.SCUTE));
+        registered.add(new BaseItem("Armadillo Scute", Material.ARMADILLO_SCUTE));
+        registered.add(new BaseItem("Turtle Scute", Material.TURTLE_SCUTE));
         registered.add(new BaseItem("Sea Grass", Material.SEAGRASS));
         registered.add(new BaseItem("Sea Pickle", Material.SEA_PICKLE));
         registered.add(new BaseItem("Shulker Box", Material.SHULKER_BOX));
@@ -1005,16 +1007,16 @@ public class BlockRegistry {
         registered.add(new BaseItem("Awkward Potion", Material.POTION, new PotionData(PotionType.AWKWARD, false, false)));
         registered.add(new BaseItem("Thick Potion", Material.POTION, new PotionData(PotionType.THICK, false, false)));
         registered.add(new BaseItem("Mundane Potion", Material.POTION, new PotionData(PotionType.MUNDANE, false, false)));
-        registered.add(new BaseItem("Potion of Regeneration", Material.POTION, new PotionData(PotionType.REGEN, false, false)));
-        registered.add(new BaseItem("Potion of Regeneration (Extended)", Material.POTION, new PotionData(PotionType.REGEN, true, false)));
-        registered.add(new BaseItem("Potion of Regeneration II", Material.POTION, new PotionData(PotionType.REGEN, false, true)));
-        registered.add(new BaseItem("Potion of Swiftness", Material.POTION, new PotionData(PotionType.SPEED, false, false)));
-        registered.add(new BaseItem("Potion of Swiftness (Extended)", Material.POTION, new PotionData(PotionType.SPEED, true, false)));
-        registered.add(new BaseItem("Potion of Swiftness II", Material.POTION, new PotionData(PotionType.SPEED, false, true)));
+        registered.add(new BaseItem("Potion of Regeneration", Material.POTION, new PotionData(PotionType.REGENERATION, false, false)));
+        registered.add(new BaseItem("Potion of Regeneration (Extended)", Material.POTION, new PotionData(PotionType.REGENERATION, true, false)));
+        registered.add(new BaseItem("Potion of Regeneration II", Material.POTION, new PotionData(PotionType.REGENERATION, false, true)));
+        registered.add(new BaseItem("Potion of Swiftness", Material.POTION, new PotionData(PotionType.SWIFTNESS, false, false)));
+        registered.add(new BaseItem("Potion of Swiftness (Extended)", Material.POTION, new PotionData(PotionType.SWIFTNESS, true, false)));
+        registered.add(new BaseItem("Potion of Swiftness II", Material.POTION, new PotionData(PotionType.SWIFTNESS, false, true)));
         registered.add(new BaseItem("Potion of Fire Resistance", Material.POTION, new PotionData(PotionType.FIRE_RESISTANCE, false, false)));
         registered.add(new BaseItem("Potion of Fire Resistance (Extended)", Material.POTION, new PotionData(PotionType.FIRE_RESISTANCE, true, false)));
-        registered.add(new BaseItem("Potion of Healing", Material.POTION, new PotionData(PotionType.INSTANT_HEAL, false, false)));
-        registered.add(new BaseItem("Potion of Healing II", Material.POTION, new PotionData(PotionType.INSTANT_HEAL, false, true)));
+        registered.add(new BaseItem("Potion of Healing", Material.POTION, new PotionData(PotionType.HEALING, false, false)));
+        registered.add(new BaseItem("Potion of Healing II", Material.POTION, new PotionData(PotionType.HEALING, false, true)));
         registered.add(new BaseItem("Potion of Invisibility", Material.POTION, new PotionData(PotionType.INVISIBILITY, false, false)));
         registered.add(new BaseItem("Potion of Night Vision", Material.POTION, new PotionData(PotionType.NIGHT_VISION, false, false)));
         registered.add(new BaseItem("Potion of Night Vision (Extended)", Material.POTION, new PotionData(PotionType.NIGHT_VISION, true, false)));
@@ -1028,21 +1030,21 @@ public class BlockRegistry {
         registered.add(new BaseItem("Potion of Weakness (Extended)", Material.POTION, new PotionData(PotionType.WEAKNESS, true, false)));
         registered.add(new BaseItem("Potion of Slowness", Material.POTION, new PotionData(PotionType.SLOWNESS, false, false)));
         registered.add(new BaseItem("Potion of Slowness (Extended)", Material.POTION, new PotionData(PotionType.SLOWNESS, true, false)));
-        registered.add(new BaseItem("Potion of Harming", Material.POTION, new PotionData(PotionType.INSTANT_DAMAGE, false, false)));
-        registered.add(new BaseItem("Potion of Harming II", Material.POTION, new PotionData(PotionType.INSTANT_DAMAGE, false, true)));
+        registered.add(new BaseItem("Potion of Harming", Material.POTION, new PotionData(PotionType.HARMING, false, false)));
+        registered.add(new BaseItem("Potion of Harming II", Material.POTION, new PotionData(PotionType.HARMING, false, true)));
         registered.add(new BaseItem("Splash Potion", Material.SPLASH_POTION));
         registered.add(new BaseItem("Splash Mundane Potion", Material.SPLASH_POTION, new PotionData(PotionType.MUNDANE, false, false)));
         registered.add(new BaseItem("Lingering Potion", Material.LINGERING_POTION));
-        registered.add(new BaseItem("Splash Potion of Regeneration", Material.SPLASH_POTION, new PotionData(PotionType.REGEN, false, false)));
-        registered.add(new BaseItem("Splash Potion of Regeneration (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.REGEN, true, false)));
-        registered.add(new BaseItem("Splash Potion of Regeneration II", Material.SPLASH_POTION, new PotionData(PotionType.REGEN, false, true)));
-        registered.add(new BaseItem("Splash Potion of Swiftness", Material.SPLASH_POTION, new PotionData(PotionType.SPEED, false, false)));
-        registered.add(new BaseItem("Splash Potion of Swiftness (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.SPEED, true, false)));
-        registered.add(new BaseItem("Splash Potion of Swiftness II", Material.SPLASH_POTION, new PotionData(PotionType.SPEED, false, true)));
+        registered.add(new BaseItem("Splash Potion of Regeneration", Material.SPLASH_POTION, new PotionData(PotionType.REGENERATION, false, false)));
+        registered.add(new BaseItem("Splash Potion of Regeneration (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.REGENERATION, true, false)));
+        registered.add(new BaseItem("Splash Potion of Regeneration II", Material.SPLASH_POTION, new PotionData(PotionType.REGENERATION, false, true)));
+        registered.add(new BaseItem("Splash Potion of Swiftness", Material.SPLASH_POTION, new PotionData(PotionType.SWIFTNESS, false, false)));
+        registered.add(new BaseItem("Splash Potion of Swiftness (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.SWIFTNESS, true, false)));
+        registered.add(new BaseItem("Splash Potion of Swiftness II", Material.SPLASH_POTION, new PotionData(PotionType.SWIFTNESS, false, true)));
         registered.add(new BaseItem("Splash Potion of Fire Resistance", Material.SPLASH_POTION, new PotionData(PotionType.FIRE_RESISTANCE, false, false)));
         registered.add(new BaseItem("Splash Potion of Fire Resistance (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.FIRE_RESISTANCE, true, false)));
-        registered.add(new BaseItem("Splash Potion of Healing", Material.SPLASH_POTION, new PotionData(PotionType.INSTANT_HEAL, false, false)));
-        registered.add(new BaseItem("Splash Potion of Healing II", Material.SPLASH_POTION, new PotionData(PotionType.INSTANT_HEAL, false, true)));
+        registered.add(new BaseItem("Splash Potion of Healing", Material.SPLASH_POTION, new PotionData(PotionType.HEALING, false, false)));
+        registered.add(new BaseItem("Splash Potion of Healing II", Material.SPLASH_POTION, new PotionData(PotionType.HEALING, false, true)));
         registered.add(new BaseItem("Splash Potion of Invisibility", Material.SPLASH_POTION, new PotionData(PotionType.INVISIBILITY, false, false)));
         registered.add(new BaseItem("Splash Potion of Strength", Material.SPLASH_POTION, new PotionData(PotionType.STRENGTH, false, false)));
         registered.add(new BaseItem("Splash Potion of Strength (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.STRENGTH, true, false)));
@@ -1056,9 +1058,14 @@ public class BlockRegistry {
         registered.add(new BaseItem("Splash Potion of Slowness (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.SLOWNESS, true, false)));
         registered.add(new BaseItem("Splash Potion of Water Breathing", Material.SPLASH_POTION, new PotionData(PotionType.WATER_BREATHING, false, false)));
         registered.add(new BaseItem("Splash Potion of Water Breathing (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.WATER_BREATHING, true, false)));
-        registered.add(new BaseItem("Splash Potion of Leaping", Material.SPLASH_POTION, new PotionData(PotionType.JUMP, false, false)));
-        registered.add(new BaseItem("Splash Potion of Leaping (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.JUMP, true, false)));
-        registered.add(new BaseItem("Splash Potion of Leaping II", Material.SPLASH_POTION, new PotionData(PotionType.JUMP, false, true)));
+        registered.add(new BaseItem("Splash Potion of Leaping", Material.SPLASH_POTION, new PotionData(PotionType.LEAPING, false, false)));
+        registered.add(new BaseItem("Splash Potion of Leaping (Extended)", Material.SPLASH_POTION, new PotionData(PotionType.LEAPING, true, false)));
+        registered.add(new BaseItem("Splash Potion of Leaping II", Material.SPLASH_POTION, new PotionData(PotionType.LEAPING, false, true)));
+
+        // New 1.21
+        registered.add(new BaseItem("Wolf Armor", Material.WOLF_ARMOR));
+        registered.add(new BaseItem("Mace", Material.MACE));
+
     }
 
     public static Optional<BaseItem> find(String name) {

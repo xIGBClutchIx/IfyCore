@@ -17,6 +17,10 @@ public class TippedArrowRegistry {
         registered.put("poison tipped arrow", new TippedArrowBuilder(PotionType.POISON, true, false));
         registered.put("weakness tipped arrow", new TippedArrowBuilder(PotionType.WEAKNESS, false, false));
         registered.put("slowness tipped arrow", new TippedArrowBuilder(PotionType.SLOWNESS, false, false));
+        registered.put("infested tipped arrow", new TippedArrowBuilder(PotionType.INFESTED, false, false));
+        registered.put("oozing tipped arrow", new TippedArrowBuilder(PotionType.OOZING, false, false));
+        registered.put("weaving tipped arrow", new TippedArrowBuilder(PotionType.WEAVING, false, false));
+        registered.put("wind charged tipped arrow", new TippedArrowBuilder(PotionType.WIND_CHARGED, false, false));
     }
 
     public static Optional<TippedArrowBuilder> find(String name) {
